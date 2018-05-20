@@ -1,0 +1,115 @@
+2018年5月13日14:52:30
+=---------------------------------------------------
+1.集合框架
+	List、Map是否都继承自Collection接口 ？
+	解析：Map和Collection平级，，没有关系
+
+	和数组采用相同存储结构的集合类型是什么？
+	解析：ArrayList
+	    LinkedList:    链表  （单向  双向  环形链表）
+	    
+	    
+	Iterator接口的作用是什么？
+	解析：Iterator 一个接口还是一个类? 接口  
+         作用：遍历集合元素，需要程序 猿/媛 手工迭代Iterator   iter=;
+        while(iter.next()){
+          
+        }
+        
+ 2.使用
+掌握集合框架包含的内容
+掌握ArrayList和LinkedList的使用
+ ArrayList获取其中一项的时候   ：  list.get(i)  不是 list[i]
+  7个
+  add(Object obj)  在集合尾部添加
+  add(int index,Object obj) 在特定位置添加
+   get(int index) :获取集合中的一个元素
+   size():集合元素总数
+  contains(对象)  :boolean  含义:是否包含
+  remove(Object obj)  按照对象
+  remove(int index) 按照索引 
+ 
+ public class ArrayList<E> extends AbstractList<E>
+        implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+{
+ LinkedList集合
+ 1.特点：删除，添加，修改的时候  速度快
+    检索速度慢
+    所以我们会想到，在必要（不同的业务场景，查询的比例和增删改的比例之间我们需要调度获取一个平衡。）的时候，
+ 
+ Set集合
+ 使用Set集合是要去除重复元素，如果在存储的时候逐equals()比较，效率太低，哈希算法提高了去重复的效率，
+ 减少了使用equals()方法的次数，当HashSet对象调用add()方法存储对象时，会调用对象的HashCode()方法得到一个哈希值，
+ 然后在集合中查找是否有哈希值相同的对象，如果用，则调用equals()方法比较，如果没有则直接存入集合。 
+因此，如果自定义类对象存入集合去重复，需要重写equals()方法和HashCode()方法。
+ 
+ String s1="abc";
+ String s2="abc";
+ 
+ 结论：==和equals都是真
+ 
+ String s1="abc";
+ String s2=new String("abc");
+ 结论：equals 为真，==为假
+ 
+ String s1=new String("abc");
+ String s2=new String("abc");
+  结论：==为假 equals 为真
+  
+  Object 的equals在底层就是调度==
+    public boolean equals(Object obj) {
+        return (this == obj);
+    }
+  
+  也就是说对Object来说：==和equals都是比较的内存地址
+  
+  
+ 面试的时候，公司的技术人员，经常问的关于集合的面试题，有一道是关于Set的。
+ 在给Set集合中添加元素的时候，Set的add是如何断定新加入的对象，在集合中已经存在还是没有存在的？
+ 解析：因为我们知道本质上set集合，底层判断对象是否重复的依据是根据hashCode()和equals()结合实现的。
+ 默认情况下，如果我们定制了一个自定义类型，
+      没有重写两个方法中任何一个，默认两个方法的逻辑代码实现走的都是
+      Object的。重点是equals()方法，做了一个操作，就是对比的是内存地址（只有两个对象是同一个对象的时候，为真）。
+      重 写了，一般会加入自己的业务逻辑，一般做的操作就是数值类型进行断定（用对象当中某个属性值的对比结果，作为整个对象的对比结果）
+      eg.  age
+  
+  
+ 周一：讲解Map++Set
+ 周三：多线程第一次课 （难度较大）  请认真预习  
+ 周五   多线程第二次课  （难度较大）  请认真预习  
+ 周日：IO流+序列化   
+ ---------------------------------------
+  周一：嗖嗖移动大厅项目 第1次
+ 周三： 嗖嗖移动大厅项目 第2次
+ 周五    嗖嗖移动大厅项目 第3次
+ 周日：嗖嗖移动项目答辩
+---------------------------------------
+
+周一   Mysql第一章  
+ 
+ 作业：1.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
