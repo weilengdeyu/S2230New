@@ -1,0 +1,792 @@
+2018年5月18日10:10:09
+1.run  jvm
+  start  Programmer
+  start和run之间没有代码直接关系。
+  
+  start 内部调度了 start0() ,start0 是native 的，就是底层使用c++写好的代码，在那个part中。他调度咱们的run方法
+  
+  Day01 封装 
+1.
+S1:IDE 集成开发环境 MyEclipse 工具  收费的，Eclipse 很多的插件的扩展
+S2:Eclipse
+Y2:Idea
+2.章节概览
+ 1.对象和封装
+1.  使用类图描述设计
+1. 掌握面向对象设计基本步骤
+1. 掌握类和对象的概念
+1. 掌握构造方法及其重载
+1. 掌握封装的概念及其使用
+
+1.软件出现的价值
+  替代手工劳动和纸质办公，将业务用电子化的方式进行管理。将业务流程迁移计算机系统上。减轻
+  部分人群的日常工作量。
+  
+2.快捷键
+  2.1一个快速创建属性 alt+shift+s  ------>r  ------>alt+a 回车
+  2.2创建无参构造和带参构造  alt+shift+s----->点击鼠标选择
+  2.3格式化代码编辑区的代码  ctrl+shift+f
+
+3.方法重载
+要求：在同一个类中 ，两个方法名称相同，参数个数，类型，顺序不同，可以构成重载，与方法本身
+的返回值没有半毛钱关系。
+  黄金结论：我们讨论重载，从来不关注方法的返回值。
+
+```
+public class Book {
+	public void readBook() {
+		System.out.println("readBook hasnot parameter");
+	}
+
+	public void readBook(String bookname) {
+		System.out.println("readBook has one parameter");
+	}
+
+	public void readBook(String bookname, int price) {
+		System.out.println("readBook has two parameter");
+	}
+}
+
+```
+4.关于变量的说明 
+  类中的变量：成员变量  系统自动给初始值
+   String： null
+   int :0
+   double:0.0
+   boolean:false
+   char:\u000000
+  方法中的变量：局部变量   需要程序员手工给初值
+ 
+ 5.静态变量
+  参考：http://www.cnblogs.com/ityouknow/p/5610232.html
+  静态
+  The static field (字段)Person.age should be accessed in a static way
+  翻译：静态的字段age只能用静态方式访问
+  Java之父：詹姆斯·高斯林
+  C#之父  ：安德斯·海尔斯伯格
+  Linux之父：林纳斯
+  Vue之父：尤雨溪 
+  纯洁的微笑
+  阮一峰
+
+  大家应该做一个有节操的程序员
+  
+ 6.封装
+   将类的某些信息隐藏类的内部，不允许外部程序直接访问， 而是通过该类提供的方法实现对隐藏
+   信息的访问。
+ 
+ 7.this
+  alt+上下键：调整代码的位置的
+  public class Book {
+	private int price;
+	
+    	public Book(){
+    		
+    	}
+         public Book(int price) {
+    	   this(); //1.必须在构造中使用  2.必须作为第一条语句
+    		this.price = price;
+    	}
+	}
+ 
+
+ 2.继承
+   类A有其他N个类的公共属性和方法，类A单独提炼成父类，其他的N个类只要集成他，可以拥有
+   它的非私有（protected,public ）成员。
+1. 掌握继承的优点和实现
+   要想使用继承，符合A  is  a B 的关系
+                        学生是 人
+                    狗狗是动物
+                    小汽车是车
+                    防盗门是门
+                    矿泉水是水  
+1. 掌握子类重写父类方法
+
+public class Parent {
+   int age; //package级别的  默认的   friendly
+}
+
+  子类不能继承父类的哪三种成员？
+    1.父类成员使用private修饰的
+    2.父类和子类不在同一个包中，父类中的属性又没有任何的访问修饰符。子类不能访问父类的成员。
+    3.父类构造
+    
+1. 掌握继承下构造方法的执行过程
+
+1. 掌握抽象类和抽象方法的使用
+1. 掌握final修饰属性、方法和类
+
+
+2018年5月4日09:07:10
+GIT
+
+技能要求：在15min内！！！
+1.多重继承关系的初始化顺序
+    重点在断点调试上
+2.抽象类和抽象方法
+   
+3.final 修饰符 ，常量
+The final field Test.age cannot be assigned
+解析：用final修饰的字段不能被再次分配值，只能初始化的时候赋值
+
+The blank final field age may not have been initialized
+解析：用final修饰的字段必须赋初值。
+
+Cannot override（重写） the final method from Parent
+解析：父类使用final修饰的方法，在子类中不能被重写
+
+The type LittleBook cannot subclass the final class Book
+解析：如果final修饰一个类，该类不能有子类的
+
+作业：
+1.git 将第一本所有code  码云 +++++github
+2.第二章形成  
+3.下午分小组，定组长，听天由命
+
+ 3.多态
+1.  掌握父类和子类之间的类型转换
+  父类 父类变量=new 子类();  //Java中 向上转型
+  子类类型  子类变量=(子类)父类变量 //Java中向下转型
+
+1. 掌握instanceof运算符的使用
+   2.A instanceof B  判断A对象是不是B类型
+1. 使用父类作为方法形参实现多态
+1. 使用父类作为返回值实现多态  简单工厂
+   1.我讲解语法的时候
+   2.多态+简单工厂计算器
+   3.网络电视精灵  简单工厂
+   4.影院售票系统
+ 4.接口
+  狭义接口：   价值;用来约束实现类中方法的长相的。
+
+  广义的接口：已经编写好的功能。例如：支付宝接口
+   //1.接口中的方法都是抽象方法 
+	//2.Java的接口变量都是静态常量
+	//3.接口方法只不过是用来约束实现类中方法长相（方法签名）的 （方法名字，方法参数，方法返回值） 方法签名 （密码学领域）
+	//4.接口的出现，可以打破Java当中只能单继承的窘迫现状，可以进行多实现，变相实现多继承
+---------------------------------------------------------------
+2018年5月9日08:49:43
+1.多态：
+  Java多态三种实现方案：
+    方案一：父类：普通类  普通方法
+            子类：普通类  普通方法
+
+    方案二：父类：抽象类  抽象方法
+            子类：普通类  重写抽象方法
+
+    方案三：父类：接口    抽象方法
+            实现类：普通类  实现接口的方法
+
+2.父类作为方法入参   员工回家
+ Employee emp=new Employee();
+ Traffic traffic=new Car();
+ emp.goHome(traffic);
+ 
+3.简单工厂 父类作为返回值
+  public class  xxxFactory{
+      public static  Calculator   getInstance(String type){
+           Calculator cal=null;
+           
+           switch(type){
+               case "+":
+                cal=new Add();
+               break;
+           }
+           
+           retrun cal;
+          
+      }
+      
+  }
+
+4.接口
+   狭义：目前我们用到的都是狭义的。就是接口的普通语法
+   
+   广义： 人家定义好的一套API或者是中间件 ，我们直接根据API文档去操作底层业务代码
+   
+5.接口使用定义一些注意事项 或者规范
+  解析：接口中的方法都是抽象方法() .没有方法体，必须被子类重写
+        2.接口中不能定义变量，只能定义常量。方法区(静态和常量)
+        3.接口可以间接的实现多继承。
+        4.接口中的方法主要起到约束实现类中方法长相的。
+        
+6.接口实现多态
+  IFly fly=new IFly(){
+      
+      @Override
+      public override void fly(){
+          
+      }
+        
+  };
+   创建了一个匿名类（接口实现类） ，没有名字的类，但是我们可以通过一定的手段拿到到类型的引用。
+   
+  ITeach teach=new ITeach() {
+			@Override  注解，告诉
+			public void teachClass() {
+	
+			}
+  };
+   
+  The method Top1() of type Child must override or implement a supertype method
+  解析：
+  
+  
+  1）每一关的信息
+  Level:写一个游戏  ，  
+  关卡的信息:
+   1.第几关  levelNo
+   2.每次向屏幕上投影 出现多少字符   strLength >>
+   3.字符重复多少次   10次  strTime
+   4.每次操作的得分  perScore
+   5.通过该关的时间  timeLimit
+   
+  2）Level的数组：代表的是我们游戏的所有关卡
+  public final static Level[] levels=new Level[6];//对应六个级别
+	static {
+		levels[0]=new Level(1, 2, 10, 30,1);
+		levels[1]=new Level(2, 3, 9, 26,2);
+		levels[2]=new Level(3, 4, 8, 22,5);
+		levels[3]=new Level(4, 5, 7, 18,8);
+		levels[4]=new Level(5, 6, 6, 15,10);
+		levels[5]=new Level(6, 7, 5, 12,15);
+	}
+  
+  3）Game{
+      Player player;
+      
+      printStr():向屏幕上输出当前关卡的字符内容
+      {
+          player.
+          
+      }
+      
+      
+      
+      printResult(String Systemout,String userinPut)
+      
+  }
+      
+  }
+  
+  
+  
+  
+  4）Palyer{
+      
+      
+      play{
+          Game game=new Game(this);
+          
+          
+          
+          
+      }
+      
+  }
+  
+  
+  5—)Test
+    Player palyer=new Player();
+    player.play();
+  
+ 5.异常
+1.     熟悉使用try-catch-finally处理异常
+        
+异常：是指在程序运行中发生的不正常事件，会终止正在运行的程序，
+throw: 扔  抛 ：
+     throw new Exception();
+
+
+throws:声明 方法之后。
+
+
+IE   ANC
+
+IllegalArgumentException 无效的参数异常
+Exception  顶级异常
+
+AthimarticException 算术异常
+ArrayIndexOutOfBoundsException 数组下标越界
+
+
+NullPointerException  空指针异常
+NumberFormatException 数字格式转换异常 “abc”
+
+ClassNotFoundException   类没有找到
+ClassCastException  类型转换异常
+
+
+finally代码块唯一不会被执行到的情况？
+S1的时候：无论代码是否有异常，finally总会执行，释放资源代码放入finally。
+
+
+1.      会使用throw、throws抛出异常
+1.      掌握异常及其分类
+1.      使用log4j记录日志
+
+声明异常 ，抛出异常
+
+异常博客：上午内容过一遍。
+2----3---4 ：7点： 最后一节：异常 和Log4j讲解
+预习集合框架
+
+
+1.在Eclipse中关联JDK源码
+
+  步骤：1.点击的是Attach按钮，下半部分------>External Location(文件和文件夹)：文件
+  
+  小TIp：当我们在PC安装了任何一款JDK，在安装目录中，有一个src.zip。这就是sun公司开发
+  JDK(Java Develoerment Kit Java开发工具包)
+
+2. 讲解分层开发中，一定要有异常向上抛。。。
+2018年5月11日08:29:07
+1.异常：程序在运行中出现的问题，我们称为异常
+
+2.分类：检查异常   运行时异常
+
+
+3.基础try catch finally
+ 情况一：try没有异常  ，finally
+ 情况二：try中有异常，先走catch，再走finally
+ 情况三:try 中有异常 ，catch捕获异常类型不匹配 ，也不能捕获到。
+ 
+4.finally唯一不执行的情况：jvm退出（System.exit(1)）
+
+5.多路异常捕获，子类异常一定要放在顶级异常之前。
+  只能匹配到一个分支。只要有任何一个异常与之匹配，后续的异常都不再进行匹配。
+  
+  
+6.关于面试题  
+return情况
+情况一：常规面试 题  ，只有catch中有return  ，虽然finally有++操作。
+ 所以他返回的结果catch中的保存的值，而不是finally操作后的结果
+ 
+ 情况二：
+   try{
+       
+   }catch(){
+       return x++;
+       
+   }finally{
+       return ++x;
+   }
+  结论：以最后一个finally为准
+  
+  
+  情况三：
+  
+ try{
+       
+   }catch(){
+       return x++;
+       
+   }finally{
+     
+   }
+  return ++x;  //该code不被执行，以catch中的结果为准
+  
+ 7.throw 程序员手工抛出一个异常 ，eg::::throw  new Exception("构造");
+ 
+   throws声明：eg. public void deleteUser() throws Exception;
+ 
+ 8.异常体系结构
+  顶级类型Object
+    throwable
+        Exception
+             -RunTimeException 运行时异常
+                ---ArrayIndexOutOfBoundsException
+             -检查异常 SQLException IOException
+
+SourceTree
+
+Tort
+
+9.日志等级到底有几种？
+  	public static final Level OFF = new Level(0x7fffffff, "OFF", 0);
+	public static final Level FATAL = new Level(50000, "FATAL", 0);
+	public static final Level ERROR = new Level(40000, "ERROR", 3);
+	public static final Level WARN = new Level(30000, "WARN", 4);
+	
+	
+	public static final Level INFO = new Level(20000, "INFO", 6);
+	public static final Level DEBUG = new Level(10000, "DEBUG", 7);
+	public static final Level TRACE = new Level(5000, "TRACE", 7);
+	public static final Level ALL = new Level(0x80000000, "ALL", 7);
+
+日志级别：error>warn>info>debug
+
+法则：只有高于(包含也可也)配置文件配置的日志级别的信息才会被记录
+
+ 
+ 6.集合框架
+ 2018年5月14日13:37:23
+ 1.ArrayList  方法
+     ArrayList() 构造
+     add()添加
+     get()获取
+     contains() 是否包含
+     size()长度
+     ----------------------------]
+     remove(int index)删除
+     remove(Object obj) 删除根据对象
+     add(int index,Object obj);在指定的位置添加元素
+     
+    
+2.LinkedList
+    特殊的方法 List接口没有，只有LinkedList实现类有
+    1套
+    addFirst()
+    addLast()
+    
+    2套
+    removeFirst()
+    reomveLast()
+    
+    
+   3套
+   getFirst()
+   getLast()
+
+3.HashSet
+
+ 唯一的，无序的
+ 添加的时候add() 保证唯一性   ==和equals
+ 
+ 底层用hashCode()和equals()
+ 
+ 
+4.Map  线  HashMap使用
+1.如果我们想将工作区WokeSpace中的项目进行逻辑划分，那么首要条件是保证左侧的视图是
+Package Explorer (包资源管理器)。如果大家的不是，请先调整。
+
+  step1：Top Elements ------->Working Set  ，小三角形对应的Menu会change
+  
+  step2：Configure Woking set-------弹出一个对话框----》添加 ---激活一个新的WIndow，
+  大家可以输入逻辑名称，点击Finish，再Ok结束。
+  
+  
+  step3：关不当前不想关注的工程，我们可以对选中的工程，点击右键----->close Project。
+  该项目会被关闭，如果关闭后的工程不想显示，我们可以选择小三角形下Filters，进行过滤，
+  勾选close Projects。
+  
+  step4：想重新激活项目，双击即可。
+  
+  5种：
+  1.方式一 通过key遍历value
+  Set<String> keySet=map.keySet();
+  for(String item:keySet){
+      sout(item+"===="+map.get(item));
+  }
+  2.方式二 直接遍历value
+  Collection<String> valueCollection=map.values();
+  for(String value:valueCollection){
+      sout(value);
+  }
+  3.方式三 entry=key+value
+  
+  
+  for(){
+      
+      
+  }
+  
+  
+
+5.Iterator
+ 
+
+ 7.多线程
+ 2018年5月18日09:44:16
+ 
+ 1.多线程
+ 
+      为什么使用多线程？
+   
+      用户体验：单线程下所有的东西都是单条路径，他们的执行需要有队列等待的过程。
+      A任务还没有完成（数据读取），B任务等待（界面渲染），界面假死。
+   
+      为了最大限度的利用CPU资源，N个执行路径，让N个执行路径的code相互之间进行资源的争夺，以充分利用CPU资源。
+      
+      可以简化编程模型：
+      public sychrnoized void a(){
+          b();
+          c();
+          d();
+      }
+   
+     
+     * 理解线程的概念
+         * 线程：是【进程（看成是线程的母亲）】中执行运算的最小单位
+         * 进程：是一次程序的执行，是一次程序的活动
+         * 多线程：就是同时有多个线程执行，共同维护程序中的数据。（个人理解）
+
+		掌握线程的创建和启动
+		了解线程的状态
+		掌握线程调度的常用方法
+ 2.主线程讲解
+            Thread currentThread = Thread.currentThread();
+    		System.out.println(currentThread.getName()+"线程名称");
+    		currentThread.setName("主线程");//设置主线程名称
+    		System.out.println(currentThread.getName()+"线程名称");
+ 3.两种线程实现方案
+   //继承Thread
+public class FirstThread extends Thread{
+	@Override
+	public void run() {
+		System.out.println("I am child thread ,please many careful");
+		String tname = Thread.currentThread().getName();
+		System.out.println(tname);
+	}
+}
+public class SecondThread implements Runnable {
+	@Override
+	public void run() {
+	   System.out.println("I am  runnable interface's run method ,ok!");
+	   String tname = Thread.currentThread().getName();
+		System.out.println(tname);
+	}
+}
+
+	System.out.println(" i am  main thread,OK!");
+		FirstThread t1=new FirstThread();
+		t1.start();
+		
+		
+		SecondThread st=new SecondThread();
+		Thread t2=new Thread(st);
+		t2.start();
+		
+4.线程优先级
+  public class FirstThread implements Runnable{
+	@Override
+	public void run() {
+		for (int i = 1; i <5; i++) {
+			System.out.println("子线程"+Thread.currentThread().getName());
+		}
+	}
+  }
+  public static void main(String[] args) {
+		
+		//线程的优先级   1-10   默认为5
+		//操作系统可能不会理会我们的优先级
+		Thread t1=new Thread(new FirstThread(),"子线程1");
+		t1.setPriority(10);
+		t1.start();
+		Thread t2=new Thread(new FirstThread(),"子线程2");
+		t2.setPriority(1);
+		t2.start();
+	}
+5.线程休眠
+  new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (int i = 1; i <=5; i++) {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					System.out.println("子线程啊！！！！！！！"+i);
+				}
+			}
+		}).start();
+		
+6.线程的强制执行 join
+public static void main(String[] args) throws InterruptedException {
+
+		Thread t1=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				for (int i = 1; i <=5; i++) {
+					System.out.println("线程A"+i);
+				}
+			}
+		});
+		
+		
+		
+		
+		Thread t2= new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				for (int i = 1; i <=5; i++) {
+					System.out.println("线程B"+i);
+					if(i==3){
+						System.out.println("线程强制执行");
+						//Thread.yield();
+						try {
+							t1.join();
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					
+				}
+			}
+		});
+		t2.start();
+     
+		t1.start();
+
+	}
+	
+	
+	补充：谈谈守护线程
+	    
+7.线程的礼让  yield
+	Thread t1=new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (int i = 1; i <=5; i++) {
+					System.out.println("线程A"+i);
+				}
+			}
+		});
+
+		Thread t2= new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (int i = 1; i <=5; i++) {
+					System.out.println("线程B"+i);
+					if(i==3){
+						System.out.println("线程的礼让");
+						Thread.yield();	
+					}
+				}
+			}
+		});
+		t2.start();
+		t1.start();
+8.打印机案例
+  public class Printer {
+	public  void print1(){		
+		synchronized(obj){
+			System.out.print("微");
+			System.out.print("冷");
+			System.out.print("的");
+			System.out.print("雨");
+			System.out.println();	 
+		}
+	}
+	Object obj=new Object();
+	//推荐大家使用除了包装类型以外的任意的引用类型，都可以作为Lock对象，一般使用的比较多的是Object obj
+	public  void print2(){
+		synchronized(obj){
+			System.out.print("好");
+			System.out.print("人");
+			System.out.println();		
+		}	
+	}
+}
+
+public class MyThread extends Thread{
+	//维护着一个打印机引用
+    public Printer printer;
+	
+	
+    @Override
+	public void run() {
+		for(int i=1;i<=500;i++){
+			printer.print1();
+		}
+	}
+}
+
+public class MyThread2 extends Thread {
+	//维护着一个打印机引用
+    public Printer printer;
+	
+	
+    @Override
+	public void run() {
+		for(int i=1;i<=500;i++){
+			printer.print2();
+		}
+	}
+}
+
+      //实例化线程变量
+	   MyThread t1=new MyThread();
+	   
+	  //实例化线程变量 
+	   MyThread2 t2=new MyThread2();
+	   
+	   //实例化打印机对象
+	   Printer printer=new Printer();
+	   
+	  //线程A绑定打印机
+	   t1.printer=printer;
+	  //线程B绑定打印机
+	   t2.printer=printer;
+	   
+	   
+	   t1.start();
+	   t2.start();
+
+
+9.售票
+public class Site implements Runnable {
+    private int count=10;//剩余票数
+    private int num=0;  //第几张票
+	@Override
+	public void run() {
+		while(true){
+			if(sale()==false){ //票已经售完
+				break;
+			}
+		}
+	}
+	//单独开了一个方法 sale
+	public  boolean sale(){
+		synchronized (this) {
+			//判定是否有剩余的票
+			if(count<=0){ //没票了
+				return false;
+			}
+			//下面代码的执行逻辑就是票数>=1
+			count--; //票数减少
+			num++;
+			System.out.println("当前窗口"+Thread.currentThread().getName()+"抢到了"+num+"号票，剩余票数为"+count);
+			return true;
+		}
+	}
+}
+
+	 //
+		Site site=new Site();
+		//线程对象   用户1
+		Thread t1=new Thread(site);
+		//线程对象   用户2
+		Thread t2=new Thread(site);
+		
+		//线程对象   用户2
+		Thread t3=new Thread(site);
+		
+		System.out.println("开始抢票");
+		t1.start();
+		t2.start();
+		t3.start();
+		
+
+2018年5月18日12:05:44
+作业：
+0.多线程上级练习和简答题 有难度，大家拿不准的先放过，晚上我发答案
+
+
+1.预习IO ，四种读取和写入文件的方式
+
+
+2.预习XML解析：我会发PPT和代码
+
+3.文涛讲解Socket，准备  
+
+4.嗖嗖移动预热
+
+PPT和文档已经发送  预判3次可完成，需要进行项目答辩
+
+
+
+ 8.IO
