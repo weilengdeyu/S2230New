@@ -9,11 +9,6 @@ public class Day01 {
 		//01.构建一个容器
 		List<Fruit> list=new ArrayList<Fruit>();
 		
-		
-		
-		
-		
-		
 		//02。踢入三种水果
 		Fruit f1=new Fruit();
 		f1.setFruitName("grape"); //葡萄
